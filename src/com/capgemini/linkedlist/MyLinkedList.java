@@ -36,6 +36,20 @@ public class MyLinkedList {
 		}
 	}
 
+	public void insertNode(INode previousNode, INode newNode) {
+		INode tempNode = previousNode.getNext();
+		newNode.setNext(tempNode);
+		previousNode.setNext(newNode);
+	}
+
+	public INode pop() {
+		INode tempfirstNode = this.head;
+		INode tempNode = this.head.getNext();
+		this.head.setNext(null);
+		this.head = tempNode;
+		return tempfirstNode;
+	}
+
 	public void printNodes() {
 		INode tempNode = this.head;
 		String nodes = " ";
@@ -48,12 +62,6 @@ public class MyLinkedList {
 		nodes = nodes + tempNode.getKey();
 		System.out.println("Linked List : " + nodes);
 
-	}
-
-	public void insertNode(INode previousNode,INode newNode) {
-		INode tempNode = previousNode.getNext();
-		newNode.setNext(tempNode);
-		previousNode.setNext(newNode);
 	}
 
 }
