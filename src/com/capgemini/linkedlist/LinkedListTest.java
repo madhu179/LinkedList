@@ -118,7 +118,7 @@ public class LinkedListTest {
 		boolean result = seachedNode.getKey().equals(30);
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test
 	public void insertingFourthNodeShouldPassTest() {
 		Node<Integer> firstNode = new Node<>(56);
@@ -129,17 +129,42 @@ public class LinkedListTest {
 		myLinkedList.appendNode(firstNode);
 		myLinkedList.appendNode(secondNode);
 		myLinkedList.appendNode(thirdNode);
-		
+
 		INode seachedNode = myLinkedList.searchNode(30);
 		INode betweenNode = new Node<>(40);
-		
+
 		myLinkedList.insertNode(seachedNode, betweenNode);
 
 		myLinkedList.printNodes();
 
 		boolean result = myLinkedList.head.equals(firstNode) && myLinkedList.head.getNext().equals(secondNode)
-				&& secondNode.getNext().equals(betweenNode)
-				&& myLinkedList.tail.equals(thirdNode);
+				&& secondNode.getNext().equals(betweenNode) && myLinkedList.tail.equals(thirdNode);
+		Assert.assertTrue(result);
+	}
+
+	@Test
+	public void deletingaSpecificNodeShouldPassTest() {
+		Node<Integer> firstNode = new Node<>(56);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(40);
+		Node<Integer> fourthNode = new Node<>(70);
+		MyLinkedList myLinkedList = new MyLinkedList();
+
+		myLinkedList.appendNode(firstNode);
+		myLinkedList.appendNode(secondNode);
+		myLinkedList.appendNode(thirdNode);
+		myLinkedList.appendNode(fourthNode);
+
+		INode seachedNode = myLinkedList.searchNode(40);
+
+		INode deletedNode = myLinkedList.deleteSpecificNode(seachedNode);
+
+		myLinkedList.printNodes();
+
+		int size = myLinkedList.size();
+		System.out.println("Linked List Size is : " + size);
+
+		boolean result = thirdNode.equals(deletedNode) && size == 3;
 		Assert.assertTrue(result);
 	}
 

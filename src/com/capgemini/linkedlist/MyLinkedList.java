@@ -71,7 +71,29 @@ public class MyLinkedList {
 		}
 		return null;
 	}
-	
+
+	public INode deleteSpecificNode(INode seachedNode) {
+		INode tempNode = this.head;
+		INode lastButOneNode = tempNode;
+		while (!((int) tempNode.getKey() == 40)) {
+			lastButOneNode = tempNode;
+			tempNode = tempNode.getNext();
+		}
+		lastButOneNode.setNext(tempNode.getNext());
+		tempNode.setNext(null);
+		this.tail = lastButOneNode.getNext();
+		return tempNode;
+	}
+
+	public int size() {
+		INode tempNode = this.head;
+		int i = 0;
+		while (tempNode.getNext() != null) {
+			i += 1;
+			tempNode = tempNode.getNext();
+		}
+		return i + 1;
+	}
 
 	public void printNodes() {
 		INode tempNode = this.head;
