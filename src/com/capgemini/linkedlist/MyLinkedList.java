@@ -106,7 +106,6 @@ public class MyLinkedList {
 		}
 		nodes = nodes + tempNode.getKey();
 		System.out.println("Linked List : " + nodes);
-
 	}
 
 }

@@ -168,4 +168,24 @@ public class LinkedListTest {
 		Assert.assertTrue(result);
 	}
 
+	@Test
+	public void given4NodesAddingInSortedOredeShouldPassTest() {
+		Node<Integer> firstNode = new Node<>(56);
+		Node<Integer> secondNode = new Node<>(30);
+		Node<Integer> thirdNode = new Node<>(40);
+		Node<Integer> fourthNode = new Node<>(70);
+		SortedLinkedList sortedLinkedList = new SortedLinkedList();
+
+		sortedLinkedList.addNodeInOrder(firstNode);
+		sortedLinkedList.addNodeInOrder(secondNode);
+		sortedLinkedList.addNodeInOrder(thirdNode);
+		sortedLinkedList.addNodeInOrder(fourthNode);
+
+		sortedLinkedList.printAllNodes();
+
+		boolean result = sortedLinkedList.Head.equals(secondNode) && sortedLinkedList.Head.getNext().equals(thirdNode)
+				&& thirdNode.getNext().equals(firstNode) && sortedLinkedList.Tail.equals(fourthNode);
+		Assert.assertTrue(result);
+	}
+
 }
