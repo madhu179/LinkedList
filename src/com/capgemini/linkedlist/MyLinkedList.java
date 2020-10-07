@@ -50,4 +50,10 @@ public class MyLinkedList {
 
 	}
 
+	public void insertNode(INode previousNode,INode newNode) {
+		INode tempNode = previousNode.getNext();
+		newNode.setNext(tempNode);
+		previousNode.setNext(newNode);
+	}
+
 }
