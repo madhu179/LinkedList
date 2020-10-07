@@ -1,6 +1,6 @@
 package com.capgemini.linkedlist;
 
-public class Node<K> implements INode<K>{
+public class Node<K> implements INode<K> {
 
 	private K key;
 	private INode next;
